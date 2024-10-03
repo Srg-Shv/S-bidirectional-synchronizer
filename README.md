@@ -8,7 +8,7 @@ The script also uses **parallel processing** for efficient file operations using
 
 ### Features:
 - **Bi-directional synchronization**: Changes in either directory are mirrored to the other.
-- **Parallel processing**: Multiple file operations (copying, updating, removing) are handled concurrently to improve speed.
+- **Parallel processing**: Multiple file operations (copying and updating *without removing any file*) are handled concurrently to improve speed.
 - **Automatic directory creation**: If one of the directories doesn't exist, it will be automatically created.
 - **File update detection**: Files are updated based on modification times.
 - **Logging**: All synchronization activities are logged to a file (`bi-sync.log`) for easy monitoring and debugging.
@@ -97,7 +97,7 @@ Suppose you have two directories, `/home/user/dir1` and `/home/user/dir2`, and y
 All synchronization operations are logged in detail. Each log entry contains:
 - **Timestamp**: The exact time of the operation.
 - **Log Level**: Information, errors, and warnings.
-- **Message**: A description of the action performed, such as file copied, directory created, or file removed.
+- **Message**: A description of the action performed, such as file copied, directory created.
 
 ---
 
