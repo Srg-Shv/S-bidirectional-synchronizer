@@ -101,13 +101,6 @@ All synchronization operations are logged in detail. Each log entry contains:
 - **Log Level**: Information, errors, and warnings.
 - **Message**: A description of the action performed, such as file copied, directory created, or file removed.
 
-Example log output:
-```
-2024-10-03 14:32:10 - INFO - File copied: '/home/user/dir1/file.txt'
-2024-10-03 14:32:12 - INFO - Directory removed: '/home/user/dir2/old_folder'
-2024-10-03 14:32:15 - INFO - File updated: '/home/user/dir2/important.txt'
-```
-
 ---
 
 ### Notes:
