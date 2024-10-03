@@ -1,6 +1,6 @@
 ### Bi-Directional Synchronization Script
 
-This Python script performs **bi-directional synchronization** between two directories, ensuring that both directories are kept in sync. It handles file copying, directory creation, file updates, and even deletions when necessary. The synchronization process works in both directions, meaning changes in either directory will be reflected in the other.
+This Python script performs **bi-directional synchronization** between two directories, ensuring that both directories are kept in sync. It handles file copying, directory creation, and file updates. The synchronization process works in both directions, meaning changes in either directory will be reflected in the other.
 
 The script also uses **parallel processing** for efficient file operations using Python’s `concurrent.futures.ThreadPoolExecutor`, allowing multiple file and directory operations to be performed simultaneously, speeding up the synchronization process for large directories.
 
@@ -11,7 +11,6 @@ The script also uses **parallel processing** for efficient file operations using
 - **Parallel processing**: Multiple file operations (copying, updating, removing) are handled concurrently to improve speed.
 - **Automatic directory creation**: If one of the directories doesn't exist, it will be automatically created.
 - **File update detection**: Files are updated based on modification times.
-- **Deletion handling**: Files and directories that exist only in one directory are deleted in the other to maintain synchronization.
 - **Logging**: All synchronization activities are logged to a file (`bi-sync.log`) for easy monitoring and debugging.
 
 ---
@@ -51,7 +50,7 @@ To run the bi-directional synchronization script, execute the following command:
 python bi_sync.py
 ```
 
-The script will read the directories specified in `bi-directories.txt` and start the synchronization process. It will log all activities, including copying, updating, and deleting files, to a log file named `bi-sync.log`.
+The script will read the directories specified in `bi-directories.txt` and start the synchronization process. It will log all activities, including copying and updating files, to a log file named `bi-sync.log`.
 
 #### Step 4: Monitor the Log File
 You can check the `bi-sync.log` file for detailed logs of the synchronization process:
@@ -82,13 +81,12 @@ Suppose you have two directories, `/home/user/dir1` and `/home/user/dir2`, and y
    python bi_sync.py
    ```
 
-3. The script will ensure that files from `dir1` are mirrored to `dir2` and vice versa, handling new files, modifications, and deletions in either directory.
+3. The script will ensure that files from `dir1` are mirrored to `dir2` and vice versa, handling new files, and modifications in either directory.
 
 ---
 
 ### Error Handling
 
-- **Missing Directories**: If one of the directories does not exist, it will automatically be created.
 - **File Permission Issues**: Any permission-related errors during file operations will be logged, but the script will continue executing.
 - **Invalid `bi-directories.txt` File**: If the `bi-directories.txt` file is missing or does not contain two valid paths, an error will be logged, and the script will exit.
 
@@ -104,7 +102,7 @@ All synchronization operations are logged in detail. Each log entry contains:
 ---
 
 ### Notes:
-- The script assumes both directories should be identical after synchronization, so any files or directories that exist only in one directory will be copied to the other or deleted as needed.
+- The script assumes both directories should be identical after synchronization, so any files or directories that exist only in one directory will be copied to the other.
 - Ensure you have sufficient disk space and permissions for both directories before running the script.
 
 ---
